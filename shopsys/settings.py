@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'shopsys.apps.catalog',
+    'shopsys.apps.cart'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -56,7 +57,9 @@ ROOT_URLCONF = 'shopsys.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(SETTINGS_DIR, 'templates')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -64,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'shopsys.utils.context_processors.global_setting'
             ],
         },
     },
@@ -106,4 +110,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+STATICFILES_DIRS = (
+    os.path.join(SETTINGS_DIR, 'static'),
+)
+
 STATIC_URL = '/static/'
+
+# 用户上传文件位置
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+# 站点设置
+SITE_NAME = '小白购'
+META_KEYWORDS = ''
+META_DESCRIPTION = ''
