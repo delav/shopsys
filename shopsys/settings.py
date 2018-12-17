@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'shopsys',
         'USER': 'shopsys',
-        'PASSWORD': '729814',
+        'PASSWORD': '*****',
 
         'HOST': '127.0.0.1',
         'POST': '3306',
